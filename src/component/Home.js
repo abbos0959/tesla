@@ -2,14 +2,36 @@ import React from "react";
 import styled from "styled-components";
 import { Header } from "./Header";
 import { Section } from "./Section";
+import down from "../images/down-arrow.svg";
+import imag from "../images/model-s.jpg";
+import imag2 from "../images/model-x.jpg";
+import imag3 from "../images/model-y.jpg";
+import imag4 from "../images/model-3.jpg";
 
 export const Home = () => {
   return (
     <Container>
-      
-
-      <Section />
-      
+      <Section
+        imag={imag}
+        down={down}
+        title="Model S"
+        dec="Order Online For Touchives Delivery"
+      />
+      <Section
+        imag={imag2}
+        title="Model X"
+        dec="Order Online For Touchives Delivery"
+      />
+      <Section
+        imag={imag3}
+        title="Model Y"
+        dec="Order Online For Touchives Delivery"
+      />
+      <Section
+        imag={imag4}
+        title="Model 3"
+        dec="Order Online For Touchives Delivery"
+      />
     </Container>
   );
 };

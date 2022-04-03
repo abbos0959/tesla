@@ -1,22 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import imag from "../images/model-s.jpg";
-import down from "../images/down-arrow.svg";
 
-export const Section = () => {
+export const Section = ({ down ,title,dec,imag}) => {
   return (
-    <Wrap>
+    <Wrap bg={imag}>
       <ItemText>
-          <h2>Model S</h2>
-          <p> Order Online For Touchives Delivery</p>
+        <h2>{title}</h2>
+        <p>{dec} </p>
       </ItemText>
-         <Buttons>
-           <ButtonGroup>
-             <LeftButton> Custom Order</LeftButton>
-             <RightButton> Existing Inventory</RightButton>
-           </ButtonGroup>
-              <DownArrow src={down} />
-         </Buttons>
+      <Buttons>
+        <ButtonGroup>
+          <LeftButton> Custom Order</LeftButton>
+          <RightButton> Existing Inventory</RightButton>
+        </ButtonGroup>
+        <DownArrow src={down} />
+      </Buttons>
     </Wrap>
   );
 };
@@ -27,7 +25,7 @@ const Wrap = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url(${imag});
+  background-image: url(${props => props.bg});
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -44,6 +42,9 @@ const ItemText = styled.div`
 const ButtonGroup = styled.div`
   display: flex;
   margin-bottom: 30px;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 const LeftButton = styled.div`
   background-color: rgba(23, 26, 32, 0.8);
@@ -61,14 +62,17 @@ const LeftButton = styled.div`
   margin: 8px;
 `;
 const RightButton = styled(LeftButton)`
-background: white;
-opacity: 0.65;
-color: black;
-
+  background: white;
+  opacity: 0.65;
+  color: black;
 `;
 
 const DownArrow = styled.img`
   /* margin-top: 20px; */
+  cursor: pointer;
+  @media screen and (max-width: 768px) {
+    margin-left: 120px;
+  }
   height: 40px;
   margin-left: 240px;
   overflow-x: hidden;
