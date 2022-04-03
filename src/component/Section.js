@@ -13,7 +13,8 @@ export const Section = ({ down ,title,dec,imag}) => {
           <LeftButton> Custom Order</LeftButton>
           <RightButton> Existing Inventory</RightButton>
         </ButtonGroup>
-        <DownArrow src={down} />
+        <a href="#">   <DownArrow src={down} /></a>
+      
       </Buttons>
     </Wrap>
   );
@@ -70,6 +71,8 @@ const RightButton = styled(LeftButton)`
 const DownArrow = styled.img`
   /* margin-top: 20px; */
   cursor: pointer;
+  position: fixed;
+  bottom: 10px;
   @media screen and (max-width: 768px) {
     margin-left: 120px;
   }

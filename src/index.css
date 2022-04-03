@@ -8,6 +8,10 @@
 body {
   width: 100%;
   overflow-x: hidden;
+  
+}
+:root{
+  scroll-behavior: smooth;
 }
 @keyframes animateDown {
   0%,
