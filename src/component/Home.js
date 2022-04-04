@@ -7,10 +7,14 @@ import imag from "../images/model-s.jpg";
 import imag2 from "../images/model-x.jpg";
 import imag3 from "../images/model-y.jpg";
 import imag4 from "../images/model-3.jpg";
+import imag5 from "../images/solar-panel.jpg";
+import imag6 from "../images/solar-roof.jpg";
+import imag7 from "../images/accessories.jpg";
 
 export const Home = () => {
   return (
     <Container>
+      <Header/>
       <Section
         imag={imag}
         down={down}
@@ -32,6 +36,22 @@ export const Home = () => {
         title="Model 3"
         dec="Order Online For Touchives Delivery"
       />
+ <Section
+        imag={imag5}
+        title="Lowest Cost Solar Panels in America"
+        dec="Money-Back Guarante"
+      />
+      <Section
+        imag={imag6}
+        title="Solar for New Roofs"
+        dec="Solar Roof Coost Less Than a New Roofs"
+      />
+        <Section
+        imag={imag7}
+        title="Accessories"
+        dec="Solar Roof Coost Less Than a New Roofs"
+      />
+
     </Container>
   );
 };
