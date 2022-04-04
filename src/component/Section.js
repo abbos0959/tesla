@@ -1,42 +1,35 @@
-
 import styled from "styled-components";
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-  
 
 export const Section = ({ down, title, dec, imag }) => {
   useEffect(() => {
     AOS.init({
       offset: 80,
       duration: 800,
-      easing: 'ease-in-sine',
+      easing: "ease-in-sine",
       delay: 100,
     });
     AOS.refresh();
   }, []);
   return (
     <Wrap bg={imag}>
-      
-        <ItemText>
+      <ItemText>
         <div data-aos="fade-up">
           <h2>{title}</h2>
           <p>{dec} </p>
-      </div>
+        </div>
+      </ItemText>
 
-        </ItemText>
-      
       <Buttons>
-      <div data-aos="fade-up">
-
-        <ButtonGroup>
-          <LeftButton> Custom Order</LeftButton>
-          <RightButton> Existing Inventory</RightButton>
-        </ButtonGroup>
+        <div data-aos="fade-up">
+          <ButtonGroup>
+            <LeftButton> Custom Order</LeftButton>
+            <RightButton> Existing Inventory</RightButton>
+          </ButtonGroup>
         </div>
         <a href="#">
-          
           <DownArrow src={down} />
         </a>
       </Buttons>
@@ -45,7 +38,7 @@ export const Section = ({ down, title, dec, imag }) => {
 };
 
 const Wrap = styled.div`
-z-index: 10;
+  z-index: 10;
   width: 100vw;
   height: 100vh;
   background-size: cover;
@@ -58,7 +51,6 @@ z-index: 10;
   align-items: center;
 `;
 const ItemText = styled.div`
-
   padding-top: 15vh;
   text-align: center;
   /* border: 1px solid red; */

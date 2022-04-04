@@ -4,10 +4,13 @@ import ima from "../images/logo.svg";
 // import MenuIcon from '@mui/icons-material/Menu';
 import { AiOutlineMenu } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
-
+import { selectCars } from "../features/Car/carSlice";
+import {useSelector} from "react-redux"
 
 export const Header = () => {
   const [btn, setbtn] = useState(false);
+  const cars1=useSelector(selectCars)
+  console.log(cars1);
   const Change = () => {
     setbtn(!btn);
     console.log(btn);
@@ -16,29 +19,25 @@ export const Header = () => {
     <Heade>
       <ImageUrl src={ima} />
       <Menu>
-        <p>Model S</p>
-        <p>Model 3</p>
-        <p>Model X</p>
-        <p>Model Y</p>
+        {cars1 && cars1.map((car,index)=>(
+          <p key={index}>{car}</p>
+        ))}
+       
       </Menu>
       <AccountBar>
         <p>Shop</p>
         <p>Account</p>
         <p>Menu</p>
-        <CustomMenu
-         onClick={()=>Change()}
-        />
+        <CustomMenu onClick={() => Change()} />
       </AccountBar>
       <BurgerNav show={btn}>
         <CloseWrapper>
-        <CloseBar onClick={()=>Change()}/>
+          <CloseBar onClick={() => Change()} />
         </CloseWrapper>
-        <p>Model S</p>
-        <p>Model S</p>
-        <p>Model S</p>
-        <p>Model S</p>
-        <p>Model S</p>
-        <p>Model S</p>
+        
+        {cars1 && cars1.map((car,index)=>(
+          <p key={index}>{car}</p>
+        ))}
       </BurgerNav>
     </Heade>
   );
@@ -112,32 +111,29 @@ const CustomMenu = styled(AiOutlineMenu)`
   }
 `;
 const BurgerNav = styled.div`
-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   background: white;
   width: 300px;
- z-index: 100;
- padding: 20px;
- display: flex;
- flex-direction: column;
- text-align: start;
- transform: ${props=>props.show ? 'translateX(0)' : 'translateX(100%)'};
- p{
-   padding: 15px 0;
-   border-bottom: 1px solid rgba(0,0,0,0.2);
-   font-weight: 600;
-   cursor: pointer;
- }
-
-`
-const CloseBar=styled(AiOutlineClose)`
-cursor: pointer;
-
-`
-const CloseWrapper=styled.div`
-margin-left: auto;
-
-`
+  z-index: 100;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  transform: ${(props) => (props.show ? "translateX(0)" : "translateX(100%)")};
+  p {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    cursor: pointer;
+  }
+`;
+const CloseBar = styled(AiOutlineClose)`
+  cursor: pointer;
+`;
+const CloseWrapper = styled.div`
+  margin-left: auto;
+`;
